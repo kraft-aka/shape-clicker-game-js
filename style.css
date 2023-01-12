@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+  background-color: #111;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+}
+
+.title {
+  text-align: center;
+  font-size: 2rem;
+  padding: 1em;
+}
+
+.shape {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  top: 100px;
+  left: 50%;
+  background-color: #1ae;
+  border: none;
+  font-size: 1.5em;
+  line-height: 100px;
+  box-shadow: 5px 2px 7px  #ccc;
+}
+
+.shape:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
