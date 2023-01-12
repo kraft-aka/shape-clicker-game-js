@@ -6,6 +6,12 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+.info {
+  text-align: center;
+  font-size: 1rem;
+  padding: 1em;
+}
+
 .title {
   text-align: center;
   font-size: 2rem;
@@ -28,4 +34,9 @@ body {
 .shape:hover {
   cursor: pointer;
   opacity: 0.8;
+}
+
+li {
+  list-style-type: none;
+  margin-top: 0.5rem;
 }

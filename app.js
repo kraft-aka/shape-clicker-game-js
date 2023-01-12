@@ -1,4 +1,7 @@
 const output = document.querySelector(".output");
+const msg = document.querySelector('.info')
+msg.classList.add('info')
+document.body.prepend(msg)
 const gameOn = { timer: 0, start: null };
 
 // create title text
@@ -47,7 +50,10 @@ const addBox = () => {
   shape.style.width = `${dimention[0]}px`;
   shape.style.height = `${dimention[1]}px`;
   shape.style.backgroundColor = getRandomColor();
-  shape.style.left = getRandomColor(container.width - dimention[0] + "px");
-  shape.style.top = getRandomColor(container.height - dimention[1] + "px");
+  shape.style.left = getRandomNumber(container.width - dimention[0] + "px");
+  shape.style.top = getRandomNumber(container.height - dimention[1] + "px");
   shape.style.borderRadius = getRandomNumber(100) + "%";
+  msg.innerHTML = `Shape's <li> width is: ${shape.style.width}</li>
+                           <li> height is: ${shape.style.height}</li>  
+                           <li> color is: ${shape.style.backgroundColor}</li> `
 };
