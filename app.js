@@ -3,6 +3,7 @@ const msg = document.querySelector('.info')
 msg.classList.add('info')
 document.body.prepend(msg)
 const gameOn = { timer: 0, start: null };
+let counter = 0;
 
 // create title text
 const title = document.createElement("div");
@@ -16,6 +17,7 @@ shape.classList.add("shape");
 output.append(shape);
 
 shape.addEventListener("click", () => {
+  counter++
   shape.textContent = "";
   shape.style.display = "none";
   gameOn.timer = setTimeout(addBox, getRandomNumber(3000));
@@ -24,7 +26,7 @@ shape.addEventListener("click", () => {
   } else {
     const timeNow = new Date().getTime();
     const duration = (timeNow - gameOn.start) / 1000;
-    title.textContent = `It took you ${duration} seconds to click!`;
+    title.textContent = `It took you ${duration} seconds to click! You clicked it ${counter} times!`;
   }
 });
 
