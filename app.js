@@ -1,14 +1,14 @@
 const output = document.querySelector(".output");
-const msg = document.querySelector('.info')
-msg.classList.add('info')
-document.body.prepend(msg)
+const msg = document.querySelector(".info");
+msg.classList.add("info");
+document.body.prepend(msg);
 const gameOn = { timer: 0, start: null };
 let counter = 0;
 
 // create title text
 const title = document.createElement("div");
 title.classList.add("title");
-title.textContent = "Click to the shape";
+title.textContent = "Click on the shape";
 document.body.prepend(title);
 
 // create a shape
@@ -16,8 +16,9 @@ const shape = document.createElement("div");
 shape.classList.add("shape");
 output.append(shape);
 
+// fires en event
 shape.addEventListener("click", () => {
-  counter++
+  counter++;
   shape.textContent = "";
   shape.style.display = "none";
   gameOn.timer = setTimeout(addBox, getRandomNumber(3000));
@@ -35,6 +36,7 @@ const getRandomNumber = (max) => {
   return Math.floor(Math.random() * max);
 };
 
+// generates random colors
 const getRandomColor = () => {
   let color = "#";
   const chars = "ABCDEF0123456789";
@@ -42,20 +44,4 @@ const getRandomColor = () => {
     color += chars[Math.floor(Math.random() * chars.length)];
   }
   return color;
-};
-
-const addBox = () => {
-  gameOn.start = new Date().getTime();
-  const container = output.getBoundingClientRect();
-  const dimention = [getRandomNumber(200) + 50, getRandomNumber(200) + 50];
-  shape.style.display = "block";
-  shape.style.width = `${dimention[0]}px`;
-  shape.style.height = `${dimention[1]}px`;
-  shape.style.backgroundColor = getRandomColor();
-  shape.style.left = getRandomNumber(container.width - dimention[0] + "px");
-  shape.style.top = getRandomNumber(container.height - dimention[1] + "px");
-  shape.style.borderRadius = getRandomNumber(100) + "%";
-  msg.innerHTML = `Shape's <li> width is: ${shape.style.width}</li>
-                           <li> height is: ${shape.style.height}</li>  
-                           <li> color is: ${shape.style.backgroundColor}</li> `
 };
